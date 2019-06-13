@@ -12,20 +12,14 @@ console.log('Number 2: ');
 var y = readline.prompt();
 y= parseFloat(y);
 
-switch (op) {
-    case '+':
+if (op=="+") {
         console.log(x+y);
-        break;
-    case '/':
+} else if (op=="/") {
         console.log(x/y);
-        break;
-    case '*':
+} else if (op=="*") {
         console.log(x*y);
-        break;
-    case '-':
+} else if (op=="-") {
         console.log(x-y);
-        break;
-    default:
+} else {
         console.log('Sorry, \"'+ op +'\" is not a supported operator, please enter one of +,-,* or /');
-        break;
 }
