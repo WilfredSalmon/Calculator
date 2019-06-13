@@ -1,25 +1,55 @@
 const readline = require('readline-sync');
 
-console.log('Calculator init \nPlease enter an operator and 2 numbers');
-console.log('Operator')
+console.log('Calculator\n============================');
+console.log('Enter an operator please')
 const op = readline.prompt(); 
 
-console.log('Number 1: ');
-var x = readline.prompt();
-x = parseFloat(x);
+console.log('How many numbers do you want to '+op)
+const toEnter = +readline.prompt();
 
-console.log('Number 2: ');
-var y = readline.prompt();
-y= parseFloat(y);
+nos = Array(toEnter);
 
-if (op=="+") {
-        console.log(x+y);
-} else if (op=="/") {
-        console.log(x/y);
-} else if (op=="*") {
-        console.log(x*y);
-} else if (op=="-") {
-        console.log(x-y);
-} else {
-        console.log('Sorry, \"'+ op +'\" is not a supported operator, please enter one of +,-,* or /');
+for (var i = 1; i<=toEnter; i++) {
+    console.log('Number ' + i +' ');
+    nos[i-1]= +readline.prompt();
 }
+
+console.log(nos);
+var ans = nos[0];
+
+switch (op){
+    
+    case '+': {
+        for (var i = 1; i < nos.length; i++) {
+            ans += nos[i];
+        }
+        break;
+    }
+
+    case '-': {
+        for (var i = 1; i < nos.length; i++) {
+            ans -= nos[i];
+        }
+        break;
+    }
+
+    case '*': {
+        for (var i = 1; i < nos.length; i++) {
+            ans *= nos[i];
+        }
+        break;
+    }
+
+    case '/': {
+        for (var i = 1; i < nos.length; i++) {
+            ans /= nos[i];
+        }
+        break;
+    }
+
+    default:
+        console.log('Unsupported Operator')
+        break;
+}
+
+console.log('The answer is: ' + ans)
