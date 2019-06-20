@@ -89,20 +89,29 @@ function getNos(op) {
         nos[i-1]= getNumber('Number ' + i);
     }
 
-    return nos
+    return nos;
 }
 
 // Gets the answer to the calculation
 function getAns(op,nos) {
     const opFunction = getOperatorFunction(op);
 
-    let ans = nos[0]
+    let ans = nos[0];
     
     for (let i = 1; i<nos.length; i++) {
-        ans = opFunction(ans,nos[i])
+        ans = opFunction(ans,nos[i]);
     }
 
     return ans;
+}
+
+//Does a calculation
+function doCalc() {
+    const op = getOperator();
+    const nos = getNos(op);
+    const ans = getAns(op,nos)
+
+    console.log('The answer is: ' + ans +'\n');
 }
 
 //MAIN CODE//
@@ -110,12 +119,5 @@ printWelcome();
 
 //Start main loop
 while (true) {
-    
-    const op = getOperator();
-    const nos = getNos(op);
-    const ans = getAns(op,nos)
-
-    console.log('The answer is: ' + ans)
-    console.log('')
-
+    doCalc();
 }
