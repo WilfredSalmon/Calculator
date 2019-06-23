@@ -53,6 +53,10 @@ function getNos(op) {
         nos[i-1]= userInput.getNumber(`Number ${i}:`);
     }
 
+    if (op == '/') {
+        nos = nos.filter( function(currentValue) {return currentValue != 0;});
+    }
+    
     return nos;
 }
 
@@ -60,11 +64,7 @@ function getNos(op) {
 function getNoAns(op,nos) {
     const opFunction = getOperatorFunction(op);
 
-    let ans = nos[0];
-    
-    for (let i = 1; i<nos.length; i++) {
-        ans = opFunction(ans,nos[i]);
-    }
+    ans = nos.reduce(function (accumulator,currentValue) {return opFunction(accumulator,currentValue)});
 
     return ans;
 }
