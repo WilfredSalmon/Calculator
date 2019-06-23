@@ -157,10 +157,10 @@ function doVowelCalc() {
 // VARS
 const supportedOps = ['+','-','*','/'] ;
 const numberMode = 1;
-const wordMode = 2;
+const vowelMode = 2;
 const menu = `Which calculator mode do you want?
-1) Arithmetic
-2) Vowel counting`
+${numberMode}) Arithmetic
+${vowelMode}) Vowel counting`
 var charsToCount = ['A','E','I','O','U'];
 
 
